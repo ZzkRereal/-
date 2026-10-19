@@ -1,0 +1,8 @@
+#!name=Surge HTTPS MITM Test
+#!desc=Log HTTPS response for httpbin.org/get; no response modification. Requires trusted Surge MITM certificate.
+
+[Script]
+HTTPS MITM Test = type=http-response, pattern=^https://httpbin\.org/get(?:\?.*)?$, script-path=https://raw.githubusercontent.com/ZzkRereal/-/main/surge-tests/https-mitm-test.js, requires-body=false, timeout=15
+
+[MITM]
+hostname = %APPEND% httpbin.org
