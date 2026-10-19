@@ -1,0 +1,11 @@
+#!name=Surge Port 8082 HTTP Test
+#!desc=Test cleartext HTTP handling on nonstandard port 8082. Logs only and does not change responses.
+
+[General]
+force-http-engine-hosts = %APPEND% portquiz.net:8082
+
+[Rule]
+DOMAIN,portquiz.net,DIRECT
+
+[Script]
+Port 8082 HTTP Response Test = type=http-response, pattern=^http:\/\/portquiz\.net:8082\/, script-path=https://raw.githubusercontent.com/ZzkRereal/-/main/surge-tests/nonstandard-port-test.js, requires-body=false, timeout=15
