@@ -1,0 +1,5 @@
+#!name=Surge HTTP Response Test
+#!desc=Log HTTP responses from neverssl.com without modifying them.
+
+[Script]
+HTTP Response Test = type=http-response, pattern=^http://(www\.)?neverssl\.com/, script-path=https://raw.githubusercontent.com/ZzkRereal/-/main/surge-tests/http-response-test.js, requires-body=false, timeout=15
